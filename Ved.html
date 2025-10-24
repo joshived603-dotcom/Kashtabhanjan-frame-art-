@@ -43,3 +43,149 @@
     .gallery-container img:hover { transform: scale(1.05); }
 
     /* Form */
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff5e1;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+    form button {
+      padding: 12px 25px;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      width: 100%;
+    }
+    form button:hover {
+      background: linear-gradient(90deg, #feb47b, #ff7e5f);
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    /* Top photos section */
+    .top-photos {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .top-photos img {
+      width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kashtabhanjan Frame Art</h1>
+    <nav>
+      <a href="#home">Home</a> |
+      <a href="#about">About Us</a> |
+      <a href="#gallery">Gallery</a> |
+      <a href="#contact">Order</a>
+    </nav>
+  </header>
+
+  <!-- ત્રણ ફોટા સીધા દેખાશે -->
+  <div class="top-photos">
+    <img src="https://i.postimg.cc/VLsgHqJ0/frame1.jpg" alt="Kashtabhanjan Hanuman Frame">
+    <img src="https://i.postimg.cc/4y3Cy2QH/frame2.jpg" alt="Couple Photo Frame">
+    <img src="https://i.postimg.cc/W1KRPdx3/frame3.jpg" alt="Birthday Calendar Frame">
+  </div>
+
+  <section id="home">
+    <h2>Welcome to Kashtabhanjan Frame Art</h2>
+    <p>We specialize in beautiful frame art for your home and office decor.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Owner: Ved B Joshi & Kaushik B. Dave</p>
+    <p>Location: Palkhada, Porbandar 360579, Gujarat, India</p>
+    <p>We create custom frame art to enhance your decor.</p>
+  </section>
+
+  <section id="gallery">
+    <h2>Our Frame Art Gallery</h2>
+    <div class="gallery-container">
+      <img src="https://i.postimg.cc/VLsgHqJ0/frame1.jpg" alt="Frame 1">
+      <img src="https://i.postimg.cc/4y3Cy2QH/frame2.jpg" alt="Frame 2">
+      <img src="https://i.postimg.cc/W1KRPdx3/frame3.jpg" alt="Frame 3">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Order on WhatsApp</h2>
+    <p>WhatsApp: <b></b> / <b>+91 81406 03098</b></p>
+    <p>Email: kdave2926@gmail.com</p>
+
+    <form id="orderForm">
+      <input type="text" id="name" placeholder="તમારું નામ" required>
+      <select id="frameType" required>
+        <option value="">ફ્રેમ પ્રકાર પસંદ કરો</option>
+        <option value="Birthday Frame">Birthday Frame</option>
+        <option value="God Frame">God Frame</option>
+        <option value="Custom Design">Custom Design</option>
+      </select>
+      <textarea id="details" rows="3" placeholder="ડિઝાઇન / સાઇઝ / કલર વગેરે"></textarea>
+      <input type="tel" id="phone" placeholder="તમારો ફોન નંબર" required>
+      <button type="button" onclick="sendOrder()">WhatsApp પર મોકલો</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Kashtabhanjan Frame Art | All Rights Reserved
+  </footer>
+
+  <script>
+    function sendOrder() {
+      const name = document.getElementById("name").value;
+      const frameType = document.getElementById("frameType").value;
+      const details = document.getElementById("details").value;
+      const phone = document.getElementById("phone").value;
+
+      if (!name || !frameType || !phone) {
+        alert("કૃપા કરીને બધા ફીલ્ડ ભરો 🙏");
+        return;
+      }
+
+      const msg = `🌸 નવો ઓર્ડર 🌸
+--------------------
+👤 નામ: ${name}
+🖼️ ફ્રેમ પ્રકાર: ${frameType}
+📋 વિગતો: ${details}
+📞 ફોન: ${phone}`;
+
+      const encodedMsg = encodeURIComponent(msg);
+      const whatsappNumber = "919773043257";
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMsg}`;
+      window.open(whatsappURL, "_blank");
+
+      alert("✅ તમારો ઓર્ડર WhatsApp પર મોકલાઈ ગયો!");
+    }
+  </script>
+</body>
+</html>
