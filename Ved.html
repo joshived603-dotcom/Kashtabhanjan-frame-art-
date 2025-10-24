@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kashtabhanjan Frame Art</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { line-height: 1.6; }
+
+    header {
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: white; padding: 20px 0; text-align: center;
+    }
+    header h1 { font-size: 2.5em; margin-bottom: 10px; }
+    header nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+    header nav a:hover { color: #333; }
+
+    section { padding: 60px 20px; text-align: center; }
+    #home { background: linear-gradient(to right, #43cea2, #185a9d); color: white; }
+    #about { background: #f4f4f4; }
+    #gallery { background: #fff3e0; }
+    #contact { background: #ffe0b2; }
+
+    section h2 { margin-bottom: 20px; font-size: 2em; }
+    section p { margin-bottom: 15px; font-size: 1.1em; }
+
+    /* Gallery */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .gallery-container img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .gallery-container img:hover { transform: scale(1.05); }
+
+    /* Form */
